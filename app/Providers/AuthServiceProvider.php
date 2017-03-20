@@ -15,7 +15,9 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app['auth']->viaRequest('api', function ($request){
+            echo "Test";
+        });
     }
 
     /**

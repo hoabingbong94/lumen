@@ -28,3 +28,15 @@ $app->group(['prefix' => 'api/v1'], function($app)
 
     $app->delete('book/{id}','BookController@deleteBook');
 });
+
+$app->group(['prefix'=>'api/v2'],function ($app){
+    //get uploads
+    $app->post('uploads','UploadsController@uploads');
+});
+$app->group(['prefix'=>'backend'],function () use ($app)
+{
+    $app->get('index','PostController@index');
+    $app->post('create','PostController@create');
+    $app->post('update/{id}','PostController@update');
+    $app->post('save','PostController@save');
+});
